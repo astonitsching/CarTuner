@@ -1,6 +1,12 @@
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,9 +20,19 @@ import java.awt.Toolkit;
  */
 public class BMW extends AbstractVehicle {
 
+    BufferedImage image;
      public BMW()
     {
-      Image background = Toolkit.getDefaultToolkit().createImage("BMW.png");
+         try {
+              image = ImageIO.read(new File("." + File.separator + "images" + File.separator + "BMW.png"));
+         } catch (IOException ex) {System.out.println(ex);}
     }   
+
+    @Override
+    public BufferedImage getImage() {
+        return image;
+    }
+     
+     
     
 }

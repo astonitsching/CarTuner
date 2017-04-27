@@ -16,6 +16,7 @@ public class Manager {
     String style;
     int year;
     AbstractVehicle currentVehicle;
+    
     private static final Manager INSTANCE = new Manager();
     
 
@@ -32,5 +33,6 @@ public class Manager {
     public void createVehicle()
     {
         currentVehicle = VehicleFactory.addVehicle(make);
+
     }
 }

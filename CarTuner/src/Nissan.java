@@ -1,4 +1,5 @@
 
+import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -17,5 +18,10 @@ public class Nissan extends AbstractVehicle {
     public Nissan()
     {
       
+    }
+
+    @Override
+    public BufferedImage getImage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

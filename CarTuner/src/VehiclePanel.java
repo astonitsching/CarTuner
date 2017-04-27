@@ -1,5 +1,12 @@
 
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.PopupMenu;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,6 +29,7 @@ public class VehiclePanel extends javax.swing.JPanel {
      * @param year
      */
     Manager manager;
+
     
     public VehiclePanel(Manager manager, String name, String make, String style, int year) {
         initComponents();
@@ -31,16 +39,12 @@ public class VehiclePanel extends javax.swing.JPanel {
         yearLabel.setText("Year: " + year);
         this.setSize(742, 710);
         this.setVisible(true);
-        this.manager = manager;   
+        this.manager = manager;  
+ 
     }
     
-    
-    @Override
-    protected void paintComponent(Graphics g) {
 
-    super.paintComponent(g);
-        g.drawImage(bgImage, 0, 0, null);
-}
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +59,7 @@ public class VehiclePanel extends javax.swing.JPanel {
         nameLabel = new javax.swing.JLabel();
         yearLabel = new javax.swing.JLabel();
         makeLabel = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        imagePanel1 = new ImagePanel();
 
         setBackground(new java.awt.Color(51, 51, 255));
         setMaximumSize(new java.awt.Dimension(742, 710));
@@ -78,17 +82,19 @@ public class VehiclePanel extends javax.swing.JPanel {
         makeLabel.setForeground(new java.awt.Color(255, 255, 255));
         makeLabel.setText("Make");
 
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        imagePanel1.setMaximumSize(new java.awt.Dimension(400, 328));
+        imagePanel1.setMinimumSize(new java.awt.Dimension(400, 328));
+        imagePanel1.setPreferredSize(new java.awt.Dimension(400, 328));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
+        javax.swing.GroupLayout imagePanel1Layout = new javax.swing.GroupLayout(imagePanel1);
+        imagePanel1.setLayout(imagePanel1Layout);
+        imagePanel1Layout.setHorizontalGroup(
+            imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 252, Short.MAX_VALUE)
+        imagePanel1Layout.setVerticalGroup(
+            imagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 328, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -96,16 +102,16 @@ public class VehiclePanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(yearLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(styleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(makeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 504, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(imagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,14 +124,14 @@ public class VehiclePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(yearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 292, Short.MAX_VALUE))
+                .addComponent(imagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 216, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private ImagePanel imagePanel1;
     private javax.swing.JLabel makeLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel styleLabel;

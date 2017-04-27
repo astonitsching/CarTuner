@@ -147,8 +147,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     Manager manager;
     String username;
     String carMake = null;
@@ -178,8 +177,9 @@ public class NewJFrame extends javax.swing.JFrame {
               Thread.sleep(2000);
           } catch (InterruptedException ex) {}
         jPanel1.setVisible(false);
-        this.add(new VehiclePanel(manager, username, carMake, carStyle, carYear));
         manager.createVehicle();
+        this.add(new VehiclePanel(manager, username, carMake, carStyle, carYear));
+        
       }
       else
           JOptionPane.showMessageDialog(this, "Please Specify your Car Attributes...");
