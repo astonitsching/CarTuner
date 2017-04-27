@@ -10,7 +10,7 @@
  */
 public class AbstractVehicle {
     private int year;
-    private String model;
+    private String make;
     private String style;
     private PartWrapper wheel;
     private PartWrapper soundSystem;

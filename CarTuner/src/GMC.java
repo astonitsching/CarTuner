@@ -6,13 +6,13 @@
 
 /**
  *
- * @author You
+ * @author TPS5215
  */
-public class BMW extends AbstractVehicle {
+public class GMC extends AbstractVehicle {
 
-     public BMW()
+    public GMC()
     {
       
-    }   
+    }    
     
 }

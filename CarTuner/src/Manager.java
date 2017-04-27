@@ -15,11 +15,10 @@ public class Manager {
     String make;
     String style;
     int year;
+    AbstractVehicle currentVehicle;
     private static final Manager INSTANCE = new Manager();
     
-    
-    
-     
+
     public static Manager getInstance()
     {
         return INSTANCE;
@@ -29,5 +28,9 @@ public class Manager {
         this.make = make;
         this.style = style;
         this.year = year;
+    }
+    public void createVehicle()
+    {
+        currentVehicle = VehicleFactory.addVehicle(make);
     }
 }

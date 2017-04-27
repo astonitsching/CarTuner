@@ -10,7 +10,10 @@
  */
 public class Honda extends AbstractVehicle {
     
-    
+    public Honda()
+    {
+      
+    }
     
     
     
