@@ -14,4 +14,6 @@ public class AbstractVehicle {
     private String style;
     private PartWrapper wheel;
     private PartWrapper soundSystem;
+    
+    // ADD PART METHOD FOR EACH VEHICLE CLASS TO INHERIT ?
 }

@@ -1,3 +1,6 @@
+
+import java.awt.Graphics;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,12 +15,15 @@ public class VehiclePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form VehiclePanel
+     * @param manager
      * @param name
      * @param make
      * @param style
      * @param year
      */
-    public VehiclePanel(String name, String make, String style, int year) {
+    Manager manager;
+    
+    public VehiclePanel(Manager manager, String name, String make, String style, int year) {
         initComponents();
         nameLabel.setText("User: " + name);
         makeLabel.setText("Make: " + make);
@@ -25,8 +31,16 @@ public class VehiclePanel extends javax.swing.JPanel {
         yearLabel.setText("Year: " + year);
         this.setSize(742, 710);
         this.setVisible(true);
-        
+        this.manager = manager;   
     }
+    
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+
+    super.paintComponent(g);
+        g.drawImage(bgImage, 0, 0, null);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +55,7 @@ public class VehiclePanel extends javax.swing.JPanel {
         nameLabel = new javax.swing.JLabel();
         yearLabel = new javax.swing.JLabel();
         makeLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(51, 51, 255));
         setMaximumSize(new java.awt.Dimension(742, 710));
@@ -63,17 +78,34 @@ public class VehiclePanel extends javax.swing.JPanel {
         makeLabel.setForeground(new java.awt.Color(255, 255, 255));
         makeLabel.setText("Make");
 
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 235, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 252, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(styleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(makeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 629, Short.MAX_VALUE))
+                .addGap(216, 216, 216)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(291, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(yearLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(styleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(makeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,12 +117,15 @@ public class VehiclePanel extends javax.swing.JPanel {
                 .addComponent(styleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(yearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 562, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 292, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel makeLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel styleLabel;

@@ -178,7 +178,7 @@ public class NewJFrame extends javax.swing.JFrame {
               Thread.sleep(2000);
           } catch (InterruptedException ex) {}
         jPanel1.setVisible(false);
-        this.add(new VehiclePanel(username, carMake, carStyle, carYear));
+        this.add(new VehiclePanel(manager, username, carMake, carStyle, carYear));
         manager.createVehicle();
       }
       else

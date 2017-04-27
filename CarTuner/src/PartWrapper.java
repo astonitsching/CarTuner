@@ -10,12 +10,12 @@
  */
 public class PartWrapper extends Part{
 
-    private Part part;
+  //  private Part part;
     
     //calculates price by getting price of wrapped part and the part
-    @Override
-    public double getPrice() {
-        return this.price + part.getPrice();
-    }
+    //@Override
+    //public double getPrice() {
+     //   return this.price + part.getPrice();
+  //  }
     
 }
