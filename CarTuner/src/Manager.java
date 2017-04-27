@@ -10,4 +10,24 @@
  */
 public class Manager {
     
+    private Manager(){}
+    
+    String make;
+    String style;
+    int year;
+    private static final Manager INSTANCE = new Manager();
+    
+    
+    
+     
+    public static Manager getInstance()
+    {
+        return INSTANCE;
+    }
+    public void setCarAttributes(String make, String style, int year)
+    {
+        this.make = make;
+        this.style = style;
+        this.year = year;
+    }
 }
