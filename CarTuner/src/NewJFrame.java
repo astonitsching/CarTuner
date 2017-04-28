@@ -146,8 +146,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
     Manager manager;
     String username;
     String carMake = null;

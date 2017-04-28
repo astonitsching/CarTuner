@@ -1,5 +1,8 @@
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,14 +16,17 @@ import java.awt.image.BufferedImage;
  */
 public class Kia extends AbstractVehicle {
 
+    BufferedImage image;
     public Kia()
     {
-      
-    }    
+      try {
+              image = ImageIO.read(new File("." + File.separator + "images" + File.separator + "KIA.png"));
+         } catch (IOException ex) {System.out.println(ex);}
+    }   
 
     @Override
     public BufferedImage getImage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return image;
     }
     
     

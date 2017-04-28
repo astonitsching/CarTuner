@@ -1,5 +1,8 @@
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,15 +15,17 @@ import java.awt.image.BufferedImage;
  * @author TPS5215
  */
 public class Chrysler extends AbstractVehicle {
- 
+    BufferedImage image;
     public Chrysler()
     {
-      
+      try {
+              image = ImageIO.read(new File("." + File.separator + "images" + File.separator + "Chrysler.png"));
+         } catch (IOException ex) {System.out.println(ex);}
     }   
 
     @Override
     public BufferedImage getImage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return image;
     }
     
     
