@@ -20,7 +20,7 @@ import javax.imageio.ImageIO;
  */
 public class BMW extends AbstractVehicle {
 
-    BufferedImage image;
+    private BufferedImage image;
      public BMW()
     {
          try {

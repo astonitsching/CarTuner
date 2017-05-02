@@ -19,12 +19,13 @@ public class ImagePanel extends JPanel{
     BufferedImage image;
     public ImagePanel()
     {
-        image = Manager.getInstance().currentVehicle.getImage();
+        
     }
     
     @Override
     public void paint(Graphics g)
     {
+        image = Manager.getInstance().currentVehicle.getImage();
         super.paint(g);   
         g.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), this);
     }

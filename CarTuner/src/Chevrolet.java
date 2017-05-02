@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
  */
 public class Chevrolet extends AbstractVehicle {
 
-        BufferedImage image;
+     BufferedImage image;
      public Chevrolet()
     {
          try {
