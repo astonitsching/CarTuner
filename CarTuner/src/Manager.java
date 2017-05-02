@@ -10,7 +10,6 @@
  */
 public class Manager {
     
-    private Manager(){}
     
     String make;
     String style;
@@ -18,6 +17,8 @@ public class Manager {
     AbstractVehicle currentVehicle;
     
     private static final Manager INSTANCE = new Manager();
+    
+    private Manager(){}
     
 
     public static Manager getInstance()
