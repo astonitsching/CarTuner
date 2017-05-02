@@ -10,6 +10,10 @@
  */
 public class PartWrapper extends Part{
 
+    public PartWrapper(double price, String image) {
+        super(price, image);
+    }
+
   //  private Part part;
     
     //calculates price by getting price of wrapped part and the part

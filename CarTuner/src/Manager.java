@@ -18,7 +18,16 @@ public class Manager {
     
     private static final Manager INSTANCE = new Manager();
     
-    private Manager(){}
+    private Manager(){
+        //initializing rims
+        PartList rimsList = new PartList();
+        Rim daytona_rim = new Rim(100, "rsc\\daytona_rim");
+        rimsList.allParts.add(daytona_rim);
+        rimsList.visibleParts.add(daytona_rim);
+        Rim smootie_rim = new Rim(150, "rsc\\smootie_rim");
+        rimsList.visibleParts.add(smootie_rim);
+        rimsList.visibleParts.add(smootie_rim);
+    }
     
 
     public static Manager getInstance()

@@ -12,7 +12,18 @@ public class Part {
     private double price;
     private String image;
 
+    public Part(double price, String image) {
+        this.price = price;
+        this.image = image;
+    }
+    
     public double getPrice() {
         return price;
     }
+
+    public String getImage() {
+        return image;
+    }
+    
+    
 }

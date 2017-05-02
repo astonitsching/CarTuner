@@ -9,5 +9,9 @@
  * @author CMS6227
  */
 public class Wheel extends Part{
+
+    public Wheel(double price, String image) {
+        super(price, image);
+    }
     
 }

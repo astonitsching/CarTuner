@@ -8,6 +8,7 @@ import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,6 +19,8 @@ public class PartRenderer extends JLabel implements ListCellRenderer<Part>{
     @Override
     public Component getListCellRendererComponent(JList<? extends Part> list, Part value, int index, boolean isSelected, boolean cellHasFocus) {
         
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource(value.getImage()));
+        return this;
     }
     
 }
