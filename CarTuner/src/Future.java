@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
@@ -25,7 +26,7 @@ public class Future {
     
     static String receipt = "";
     static ArrayList <Object> parts = new ArrayList();
-    
+    private final Manager manager = Manager.getInstance();
     
     public Future(String name, String make, String style, int year)
     {
@@ -38,6 +39,13 @@ public class Future {
         parts.add(part);
     }
     
+    public static void viewParts()
+    {
+        //manager.currentVehicle
+           // JOptionPane.showMessageDialog(this, "Thank You " + username + ".\nYour " + carYear + " " + carMake + " has "
+          //          + "been added to our system!");
+        
+    }
     public static void printReceipt() throws PrinterException
     {
         JTextPane jtp = new JTextPane();
