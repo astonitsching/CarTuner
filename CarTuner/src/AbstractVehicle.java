@@ -15,7 +15,7 @@ public abstract class AbstractVehicle {
     private int year;
     private String make;
     private String style;
-    private PartWrapper wheel;
+    public Rim rim;
     private PartWrapper soundSystem;
     private BufferedImage image;
     
