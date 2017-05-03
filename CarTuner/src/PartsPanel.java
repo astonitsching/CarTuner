@@ -24,12 +24,23 @@ public class PartsPanel extends javax.swing.JPanel {
     
     public PartsPanel(NewJFrame parentFrame) {
         initComponents();
-        DefaultListModel listModel = new DefaultListModel();
+        this.setSize(742, 710);
+        this.setVisible(true);
         this.parentFrame = parentFrame;
-        for (Part p: parentFrame.manager.rimsList.allParts) {
-            listModel.addElement(p);
-        }
+        DefaultListModel listModel = new DefaultListModel();
+        PartRenderer pr = new PartRenderer();
+        jList1.setCellRenderer(pr);
+        
+        Part p = new Rim(100, "rsc/daytona_rim.png");
+        Part q = new Rim(150, "rsc/smootie_rim.png");
+        listModel.addElement(p);
+        listModel.addElement(q);
+//        for (Part p: parentFrame.manager.rimsList.allParts) {
+//            listModel.addElement(p);
+//            System.out.println(p);
+//        }
         jList1.setModel(listModel);
+        
     }
 
     /**
@@ -44,7 +55,6 @@ public class PartsPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
 
-        jList1.setModel(new javax.swing.DefaultListModel());
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -60,8 +70,8 @@ public class PartsPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(185, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
