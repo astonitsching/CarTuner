@@ -28,18 +28,15 @@ public class PartsPanel extends javax.swing.JPanel {
         this.setVisible(true);
         this.parentFrame = parentFrame;
         this.manager = Manager.getInstance();
+        updateRemainingBudget();
         DefaultListModel listModel = new DefaultListModel();
         PartRenderer pr = new PartRenderer();
         rimGUIList.setCellRenderer(pr);
         
-        Part p = new Rim(100, "rsc/daytona_rim.png");
-        Part q = new Rim(150, "rsc/smootie_rim.png");
-        listModel.addElement(p);
-        listModel.addElement(q);
-//        for (Part p: parentFrame.manager.rimsList.allParts) {
-//            listModel.addElement(p);
-//            System.out.println(p);
-//        }
+        for (Part p: Manager.getInstance().rimsList.visibleParts) {
+            listModel.addElement(p);
+            System.out.println(p);
+        }
         rimGUIList.setModel(listModel);
         
     }
@@ -56,7 +53,7 @@ public class PartsPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         rimGUIList = new javax.swing.JList();
         addRimButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        remainingBudgetLabel = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(742, 710));
         setMinimumSize(new java.awt.Dimension(742, 710));
@@ -71,7 +68,7 @@ public class PartsPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        remainingBudgetLabel.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,14 +83,14 @@ public class PartsPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
+                        .addComponent(remainingBudgetLabel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(remainingBudgetLabel)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,17 +100,20 @@ public class PartsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addRimButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRimButtonActionPerformed
-        System.out.println(rimGUIList.getSelectedValue());
-        System.out.println(manager.currentVehicle);
-        manager.currentVehicle.rim = (Rim) rimGUIList.getSelectedValue();
-        //add it to the car
+        Part selectedPart = (Part) rimGUIList.getSelectedValue();
+        manager.currentVehicle.addPart(selectedPart);
+        updateRemainingBudget();
     }//GEN-LAST:event_addRimButtonActionPerformed
 
+    private void updateRemainingBudget(){
+        Budget.calculateRemainingBudget(manager.currentVehicle);
+        remainingBudgetLabel.setText("Remaining Budget: " + Double.toString(Budget.getRemainingBudget()));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRimButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel remainingBudgetLabel;
     private javax.swing.JList rimGUIList;
     // End of variables declaration//GEN-END:variables
 }
