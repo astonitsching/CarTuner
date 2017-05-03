@@ -1,3 +1,8 @@
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +18,18 @@ public class PartsPanel extends javax.swing.JPanel {
     /**
      * Creates new form PartsPanel
      */
-    public PartsPanel() {
+    
+    private Manager manager;
+    private NewJFrame parentFrame;
+    
+    public PartsPanel(NewJFrame parentFrame) {
         initComponents();
+        DefaultListModel listModel = new DefaultListModel();
+        this.parentFrame = parentFrame;
+        for (Part p: parentFrame.manager.rimsList.allParts) {
+            listModel.addElement(p);
+        }
+        jList1.setModel(listModel);
     }
 
     /**
@@ -29,11 +44,7 @@ public class PartsPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        jList1.setModel(new javax.swing.DefaultListModel());
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

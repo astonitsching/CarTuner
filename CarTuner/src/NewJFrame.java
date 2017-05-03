@@ -149,7 +149,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    Manager manager;
+    public Manager manager;
     String username;
     String carMake = null;
     String carStyle = null;
@@ -179,7 +179,8 @@ public class NewJFrame extends javax.swing.JFrame {
           } catch (InterruptedException ex) {}
         jPanel1.setVisible(false);
         manager.createVehicle();
-        this.add(new VehiclePanel(manager, username, carMake, carStyle, carYear));
+        this.add(new VehiclePanel(manager, username, carMake, carStyle, carYear, this));
+        
         
       }
       else

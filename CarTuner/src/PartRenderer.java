@@ -20,6 +20,7 @@ public class PartRenderer extends JLabel implements ListCellRenderer<Part>{
     public Component getListCellRendererComponent(JList<? extends Part> list, Part value, int index, boolean isSelected, boolean cellHasFocus) {
         
         ImageIcon imageIcon = new ImageIcon(getClass().getResource(value.getImage()));
+        setIcon(imageIcon);
         return this;
     }
     

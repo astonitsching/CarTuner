@@ -9,6 +9,7 @@ import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /*
@@ -32,10 +33,12 @@ public class VehiclePanel extends javax.swing.JPanel {
      * @param year
      */
     Manager manager;
+    NewJFrame parentFrame;
 
     
-    public VehiclePanel(Manager manager, String name, String make, String style, int year) {
+    public VehiclePanel(Manager manager, String name, String make, String style, int year, NewJFrame parentFrame) {
         initComponents();
+        this.parentFrame = parentFrame;
         nameLabel.setText("User: " + name);
         makeLabel.setText("Make: " + make);
         styleLabel.setText("Style: " + style);
@@ -98,6 +101,11 @@ public class VehiclePanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Goudy Stout", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Add Parts");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -145,6 +153,11 @@ public class VehiclePanel extends javax.swing.JPanel {
             Logger.getLogger(VehiclePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        parentFrame.add(new PartsPanel(parentFrame));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

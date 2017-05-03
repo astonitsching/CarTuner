@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author CMS6227
  */
     public class PartList implements Observer{
-    public ArrayList<Part> allParts;
-    public ArrayList<Part> visibleParts;
+    public ArrayList<Part> allParts = new ArrayList();
+    public ArrayList<Part> visibleParts = new ArrayList();
 
     //implement notify as setting which parts are visible
     @Override
