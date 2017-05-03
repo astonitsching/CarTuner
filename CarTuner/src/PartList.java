@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author CMS6227
  */
-    public class PartList implements Observer{
+    public class PartList implements OObserver{
     public ArrayList<Part> allParts = new ArrayList();
     public ArrayList<Part> visibleParts = new ArrayList();
 

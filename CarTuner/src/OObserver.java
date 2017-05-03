@@ -8,6 +8,6 @@
  *
  * @author CMS6227
  */
-public interface Observer {
+public interface OObserver {
     void notify(double budget);
 }

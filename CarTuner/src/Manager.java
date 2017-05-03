@@ -1,5 +1,6 @@
 
 import java.util.HashMap;
+import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,18 +20,19 @@ public class Manager {
     int year;
     AbstractVehicle currentVehicle;
     public PartList rimsList;
-    Budget budget = new Budget();
+    public Budget budget = new Budget();
+    public PartsPanel partsPanel;
     
     private static final Manager INSTANCE = new Manager();
     
     private Manager(){
         //initializing rims
         rimsList = new PartList();
-        Part daytona_rim = new Part(100, "rsc\\daytona_rim");
+        Part daytona_rim = new Part(100, "rsc/daytona_rim.png");
         rimsList.allParts.add(daytona_rim);
         rimsList.visibleParts.add(daytona_rim);
-        Rim smootie_rim = new Rim(150, "rsc\\smootie_rim");
-        rimsList.visibleParts.add(smootie_rim);
+        Part smootie_rim = new Part(150, "rsc/smootie_rim.png");
+        rimsList.allParts.add(smootie_rim);
         rimsList.visibleParts.add(smootie_rim);
     }
     

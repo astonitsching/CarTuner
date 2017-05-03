@@ -12,35 +12,51 @@ import java.util.Observer;
  *
  * @author CMS6227
  */
-public class Budget implements Observable {
-   private static double budget;
+public class Budget implements OObservable{
+   public static double budget = 1000;
    private static double remainingBudget;
     
-    private ArrayList<Observer> observers;
+    private ArrayList<OObserver> observers = new ArrayList();
 
     public static void setBudget(double budget)
     {
         Budget.budget = budget;
     }
     
-    public calculateRemainingBudget(AbstractVehicle vehicle) {
-        remaingBudget = budget - vehicle.rim.getPrice();
+    public void calculateRemainingBudget(AbstractVehicle vehicle) {
+        remainingBudget = budget - vehicle.priceSum;
+        notifyObservers();
     }
     
-    @Override
-    public void addObserver(Observable o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public static double getRemainingBudget() {
+        return remainingBudget;
     }
 
     @Override
-    public void removeObserver(Observable o) {
+    public void addObserver(OObserver o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(OObserver o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void notifyObservers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(OObserver o : observers) {
+            o.notify();
+        }
+        Manager.getInstance().partsPanel.updateLists();
+        
     }
+
+
+ 
+   
+    
+
     
     
 }

@@ -20,22 +20,25 @@ public abstract class AbstractVehicle {
     private PartWrapper soundSystem;
     private BufferedImage image;
     ArrayList <Part> partlist = new ArrayList();
+    public double priceSum;
 
-    public double accumlatePrice()
+    public void accumulatePrice()
     {
-        double totalprice = 0;
+        double totalPrice = 0;
         for(Part part : partlist)
         {
-            totalprice += part.getPrice();
+            totalPrice += part.getPrice();
         }
-        
-        return totalprice;
+       
+        this.priceSum = totalPrice;
+        return;
     }
     // combine part prices
     
     public void addPart(Part part)
     {
         partlist.add(part);
+        accumulatePrice();
     }
    
     // ADD PART METHOD FOR EACH VEHICLE CLASS TO INHERIT ?

@@ -8,8 +8,8 @@
  *
  * @author CMS6227
  */
-public interface Observable {
-    void addObserver(Observable o);
-    void removeObserver(Observable o);
-    void notifyObservers();
+public interface OObservable {
+    public void addObserver(OObserver o);
+    public void removeObserver(OObserver o);
+    public void notifyObservers();
 }

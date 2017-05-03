@@ -22,12 +22,13 @@ public class PartsPanel extends javax.swing.JPanel {
     private Manager manager;
     private NewJFrame parentFrame;
     
-    public PartsPanel(NewJFrame parentFrame) {
+    public PartsPanel(NewJFrame parentFrame) {    
         initComponents();
         this.setSize(742, 710);
         this.setVisible(true);
         this.parentFrame = parentFrame;
         this.manager = Manager.getInstance();
+        manager.partsPanel = this;
         updateRemainingBudget();
         DefaultListModel listModel = new DefaultListModel();
         PartRenderer pr = new PartRenderer();
@@ -35,9 +36,9 @@ public class PartsPanel extends javax.swing.JPanel {
         
         for (Part p: Manager.getInstance().rimsList.visibleParts) {
             listModel.addElement(p);
-            System.out.println(p);
         }
         rimGUIList.setModel(listModel);
+        rimGUIList.setVisible(false);
         
     }
 
@@ -54,11 +55,17 @@ public class PartsPanel extends javax.swing.JPanel {
         rimGUIList = new javax.swing.JList();
         addRimButton = new javax.swing.JButton();
         remainingBudgetLabel = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         setMaximumSize(new java.awt.Dimension(742, 710));
         setMinimumSize(new java.awt.Dimension(742, 710));
         setPreferredSize(new java.awt.Dimension(742, 710));
 
+        rimGUIList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rimGUIListMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(rimGUIList);
 
         addRimButton.setText("Add Rim");
@@ -70,18 +77,27 @@ public class PartsPanel extends javax.swing.JPanel {
 
         remainingBudgetLabel.setText("jLabel1");
 
+        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(addRimButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addRimButton)
+                            .addComponent(jCheckBox1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(remainingBudgetLabel)))
                 .addContainerGap())
@@ -94,24 +110,51 @@ public class PartsPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addRimButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addRimButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBox1)))
                 .addContainerGap(531, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addRimButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRimButtonActionPerformed
-        Part selectedPart = (Part) rimGUIList.getSelectedValue();
-        manager.currentVehicle.addPart(selectedPart);
-        updateRemainingBudget();
+        // remove list contents
+//        for (Part p: Manager.getInstance().rimsList.visibleParts) {
+//            listModel.addElement(p);
+//        }
+        rimGUIList.setVisible(true);
+
     }//GEN-LAST:event_addRimButtonActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        Manager.getInstance().budget.addObserver(Manager.getInstance().rimsList);
+        
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void rimGUIListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rimGUIListMousePressed
+        Part selectedPart = (Part) rimGUIList.getSelectedValue();
+        manager.currentVehicle.addPart(selectedPart);
+        System.out.println(selectedPart);
+        updateRemainingBudget();
+    }//GEN-LAST:event_rimGUIListMousePressed
+
     private void updateRemainingBudget(){
-        Budget.calculateRemainingBudget(manager.currentVehicle);
+        manager.budget.calculateRemainingBudget(manager.currentVehicle);
         remainingBudgetLabel.setText("Remaining Budget: " + Double.toString(Budget.getRemainingBudget()));
+    }
+    
+    public void updateLists() {
+        DefaultListModel listModel = new DefaultListModel();
+        for (Part p: Manager.getInstance().rimsList.visibleParts) {
+            listModel.addElement(p);
+        }
+        rimGUIList.setModel(listModel);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRimButton;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel remainingBudgetLabel;
     private javax.swing.JList rimGUIList;
