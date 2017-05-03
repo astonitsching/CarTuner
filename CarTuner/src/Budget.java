@@ -13,14 +13,20 @@ import java.util.Observer;
  * @author CMS6227
  */
 public class Budget implements Observable {
-    private static double remainingBudget;
-    private static double budget;
+   private static double budget;
+   private static double remainingBudget;
+    
     private ArrayList<Observer> observers;
 
     public static void setBudget(double budget)
     {
         Budget.budget = budget;
     }
+    
+    public calculateRemainingBudget(AbstractVehicle vehicle) {
+        remaingBudget = budget - vehicle.rim.getPrice();
+    }
+    
     @Override
     public void addObserver(Observable o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

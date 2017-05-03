@@ -58,6 +58,10 @@ public class PartsPanel extends javax.swing.JPanel {
         addRimButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(742, 710));
+        setMinimumSize(new java.awt.Dimension(742, 710));
+        setPreferredSize(new java.awt.Dimension(742, 710));
+
         jScrollPane1.setViewportView(rimGUIList);
 
         addRimButton.setText("Add Rim");
@@ -78,7 +82,7 @@ public class PartsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(addRimButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -94,7 +98,7 @@ public class PartsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addRimButton))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

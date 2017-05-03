@@ -28,10 +28,12 @@ public class BMW extends AbstractVehicle {
          } catch (IOException ex) {System.out.println(ex);}
     }   
 
+
     @Override
     public BufferedImage getImage() {
         return image;
     }
+    
      
      
     

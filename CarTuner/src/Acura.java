@@ -25,10 +25,11 @@ public class Acura extends AbstractVehicle {
     }   
 
 
-    @Override
+     @Override
     public BufferedImage getImage() {
         return image;
     }
+    
     
     
 }

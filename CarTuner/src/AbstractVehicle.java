@@ -1,5 +1,6 @@
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,8 +19,26 @@ public abstract class AbstractVehicle {
     public Rim rim;
     private PartWrapper soundSystem;
     private BufferedImage image;
+    ArrayList <Part> partlist = new ArrayList();
+
+    public double accumlatePrice()
+    {
+        double totalprice = 0;
+        for(Part part : partlist)
+        {
+            totalprice += part.getPrice();
+        }
+        
+        return totalprice;
+    }
+    // combine part prices
     
-   public abstract BufferedImage getImage();
+    public void addPart(Part part)
+    {
+        partlist.add(part);
+    }
    
     // ADD PART METHOD FOR EACH VEHICLE CLASS TO INHERIT ?
+    
+    public abstract BufferedImage getImage();
 }

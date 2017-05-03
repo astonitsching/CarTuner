@@ -1,3 +1,6 @@
+
+import java.util.HashMap;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,13 +19,14 @@ public class Manager {
     int year;
     AbstractVehicle currentVehicle;
     public PartList rimsList;
+    Budget budget = new Budget();
     
     private static final Manager INSTANCE = new Manager();
     
     private Manager(){
         //initializing rims
         rimsList = new PartList();
-        Rim daytona_rim = new Rim(100, "rsc\\daytona_rim");
+        Part daytona_rim = new Part(100, "rsc\\daytona_rim");
         rimsList.allParts.add(daytona_rim);
         rimsList.visibleParts.add(daytona_rim);
         Rim smootie_rim = new Rim(150, "rsc\\smootie_rim");
@@ -30,7 +34,6 @@ public class Manager {
         rimsList.visibleParts.add(smootie_rim);
     }
     
-
     public static Manager getInstance()
     {
         return INSTANCE;

@@ -9,21 +9,21 @@
  * @author CMS6227
  */
 public class Part {
-    private double price;
-    private String image;
 
+    private double price;
+     
     public Part(double price, String image) {
         this.price = price;
-        this.image = image;
+        //this.image = image;
     }
-    
+//    
     public double getPrice() {
         return price;
     }
-
-    public String getImage() {
-        return image;
-    }
+//
+//    public String getImage() {
+//        return image;
+//    }
     
     
 }
