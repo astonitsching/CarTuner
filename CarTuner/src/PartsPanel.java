@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -132,10 +134,12 @@ public class PartsPanel extends javax.swing.JPanel {
         remainingBudgetLabel = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(255, 255, 204));
         setMaximumSize(new java.awt.Dimension(742, 710));
         setMinimumSize(new java.awt.Dimension(742, 710));
         setPreferredSize(new java.awt.Dimension(742, 710));
 
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(745, 600));
 
         rimGUIList.setBackground(new java.awt.Color(153, 153, 153));
@@ -347,6 +351,7 @@ public class PartsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_rimGUIListMousePressed
 
     private void speakerGUIListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_speakerGUIListMousePressed
+       
         Part speaker = (Part)speakerGUIList.getSelectedValue();
         JOptionPane.showMessageDialog(this, "Adding Tint titled " + speaker.getImage() +
             " \n   Price is $" + speaker.getPrice());
@@ -376,13 +381,12 @@ public class PartsPanel extends javax.swing.JPanel {
     }
     
     public void updateLists() {
-      
-            updateAllParts(tireGUIList, Manager.getInstance().tiresList.visibleParts, d2);
-            updateAllParts(speakerGUIList, Manager.getInstance().speakerList.visibleParts, d6);
-            updateAllParts(rimGUIList, Manager.getInstance().rimsList.visibleParts, d);
-            updateAllParts(spoilerGUIList3, Manager.getInstance().spoilerList.visibleParts, d5);
-            updateAllParts(ssGUIList, Manager.getInstance().ssList.visibleParts, d4);
-            updateAllParts(engineGUIList, Manager.getInstance().enginesList.visibleParts, d1);
+         updateAllParts(tireGUIList, Manager.getInstance().tiresList.visibleParts, d2);
+         updateAllParts(speakerGUIList, Manager.getInstance().speakerList.visibleParts, d6);
+         updateAllParts(rimGUIList, Manager.getInstance().rimsList.visibleParts, d);
+         updateAllParts(spoilerGUIList3, Manager.getInstance().spoilerList.visibleParts, d5);
+         updateAllParts(ssGUIList, Manager.getInstance().ssList.visibleParts, d4);
+         updateAllParts(engineGUIList, Manager.getInstance().enginesList.visibleParts, d1);
 //        for (Part p: Manager.getInstance().rimsList.visibleParts) {
 //            d.addElement(p);
 //        }
@@ -393,6 +397,7 @@ public class PartsPanel extends javax.swing.JPanel {
     }
     
     private void updateAllParts(JList updatedJList, ArrayList<Part> partList, DefaultListModel dlm) {
+        dlm.clear();
         for (Part p: partList) {
             dlm.addElement(p);
         }

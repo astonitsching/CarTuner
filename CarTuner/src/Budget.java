@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,6 +17,7 @@ import java.util.Observer;
 public class Budget implements OObservable{
    public static double budget = 500;
    public static double remainingBudget;
+
     
     private ArrayList<OObserver> observers = new ArrayList();
 
@@ -42,6 +45,7 @@ public class Budget implements OObservable{
     @Override
     public void removeObserver(OObserver o) {
         observers.remove(o);
+  
     }
 
     @Override
@@ -49,8 +53,10 @@ public class Budget implements OObservable{
         for(OObserver o : observers) {
             o.notifyObserver(remainingBudget);
         }
-        Manager.getInstance().partsPanel.updateLists();
-        
+ 
+            Manager.getInstance().partsPanel.updateLists();
+
+
     }
 
 
