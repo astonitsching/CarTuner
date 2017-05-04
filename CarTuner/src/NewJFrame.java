@@ -174,9 +174,9 @@ public class NewJFrame extends javax.swing.JFrame {
         username = JOptionPane.showInputDialog("Profile Almost Created, please Enter your UserName");
         JOptionPane.showMessageDialog(this, "Thank You " + username + ".\nYour " + carYear + " " + carMake + " has "
                 + "been added to our system!");
-          try {
-              Thread.sleep(2000);
-          } catch (InterruptedException ex) {}
+//          try {
+//              Thread.sleep(2000);
+//          } catch (InterruptedException ex) {}
         jPanel1.setVisible(false);
         manager.createVehicle();
         this.add(new VehiclePanel(manager, username, carMake, carStyle, carYear, this));

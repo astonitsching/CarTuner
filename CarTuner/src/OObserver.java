@@ -9,5 +9,5 @@
  * @author CMS6227
  */
 public interface OObserver {
-    void notify(double budget);
+    void notifyObserver(double budget);
 }

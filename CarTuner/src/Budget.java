@@ -13,8 +13,8 @@ import java.util.Observer;
  * @author CMS6227
  */
 public class Budget implements OObservable{
-   public static double budget = 1000;
-   private static double remainingBudget;
+   public static double budget = 500;
+   public static double remainingBudget;
     
     private ArrayList<OObserver> observers = new ArrayList();
 
@@ -36,17 +36,18 @@ public class Budget implements OObservable{
     @Override
     public void addObserver(OObserver o) {
         observers.add(o);
+        notifyObservers();
     }
 
     @Override
     public void removeObserver(OObserver o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        observers.remove(o);
     }
 
     @Override
     public void notifyObservers() {
         for(OObserver o : observers) {
-            o.notify();
+            o.notifyObserver(remainingBudget);
         }
         Manager.getInstance().partsPanel.updateLists();
         

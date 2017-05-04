@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
     //implement notify as setting which parts are visible
     @Override
-    public void notify(double budget) {
+    public void notifyObserver(double budget) {
         
         //remove all elements from visible parts
         visibleParts.clear();

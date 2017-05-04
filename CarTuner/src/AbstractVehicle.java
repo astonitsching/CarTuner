@@ -19,7 +19,7 @@ public abstract class AbstractVehicle {
     public Rim rim;
     private PartWrapper soundSystem;
     private BufferedImage image;
-    ArrayList <Part> partlist = new ArrayList();
+    private ArrayList <Part> partlist = new ArrayList();
     public double priceSum;
 
     public void accumulatePrice()

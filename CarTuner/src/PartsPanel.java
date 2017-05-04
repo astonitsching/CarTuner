@@ -1,6 +1,8 @@
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 
 /*
@@ -21,6 +23,7 @@ public class PartsPanel extends javax.swing.JPanel {
     
     private Manager manager;
     private NewJFrame parentFrame;
+    DefaultListModel listModel;
     
     public PartsPanel(NewJFrame parentFrame) {    
         initComponents();
@@ -30,7 +33,7 @@ public class PartsPanel extends javax.swing.JPanel {
         this.manager = Manager.getInstance();
         manager.partsPanel = this;
         updateRemainingBudget();
-        DefaultListModel listModel = new DefaultListModel();
+        listModel = new DefaultListModel();
         PartRenderer pr = new PartRenderer();
         rimGUIList.setCellRenderer(pr);
         
@@ -38,7 +41,6 @@ public class PartsPanel extends javax.swing.JPanel {
             listModel.addElement(p);
         }
         rimGUIList.setModel(listModel);
-        rimGUIList.setVisible(false);
         
     }
 
@@ -53,27 +55,30 @@ public class PartsPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         rimGUIList = new javax.swing.JList();
-        addRimButton = new javax.swing.JButton();
         remainingBudgetLabel = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tintGUIList = new javax.swing.JList();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        engineGUIList = new javax.swing.JList();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        speakerGUIList1 = new javax.swing.JList();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        wheelGUIList = new javax.swing.JList();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        spoilerGUIList3 = new javax.swing.JList();
 
         setMaximumSize(new java.awt.Dimension(742, 710));
         setMinimumSize(new java.awt.Dimension(742, 710));
         setPreferredSize(new java.awt.Dimension(742, 710));
 
+        rimGUIList.setBackground(new java.awt.Color(102, 102, 102));
         rimGUIList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 rimGUIListMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(rimGUIList);
-
-        addRimButton.setText("Add Rim");
-        addRimButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addRimButtonActionPerformed(evt);
-            }
-        });
 
         remainingBudgetLabel.setText("jLabel1");
 
@@ -84,62 +89,137 @@ public class PartsPanel extends javax.swing.JPanel {
             }
         });
 
+        tintGUIList.setBackground(new java.awt.Color(204, 204, 204));
+        tintGUIList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tintGUIListMousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tintGUIList);
+
+        engineGUIList.setBackground(new java.awt.Color(153, 153, 153));
+        engineGUIList.setName("engineGUIList"); // NOI18N
+        engineGUIList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                engineGUIListMousePressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(engineGUIList);
+
+        speakerGUIList1.setBackground(new java.awt.Color(102, 102, 102));
+        speakerGUIList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                speakerGUIList1MousePressed(evt);
+            }
+        });
+        jScrollPane4.setViewportView(speakerGUIList1);
+
+        wheelGUIList.setBackground(new java.awt.Color(204, 204, 204));
+        wheelGUIList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                wheelGUIListMousePressed(evt);
+            }
+        });
+        jScrollPane5.setViewportView(wheelGUIList);
+
+        spoilerGUIList3.setBackground(new java.awt.Color(153, 153, 153));
+        spoilerGUIList3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                spoilerGUIList3MousePressed(evt);
+            }
+        });
+        jScrollPane6.setViewportView(spoilerGUIList3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(remainingBudgetLabel)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addRimButton)
-                            .addComponent(jCheckBox1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(remainingBudgetLabel)))
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(2, 2, 2))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jCheckBox1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(remainingBudgetLabel)
-                .addGap(50, 50, 50)
+                .addGap(6, 6, 6)
+                .addComponent(jCheckBox1)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(addRimButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCheckBox1)))
-                .addContainerGap(531, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addRimButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRimButtonActionPerformed
-        // remove list contents
-//        for (Part p: Manager.getInstance().rimsList.visibleParts) {
-//            listModel.addElement(p);
-//        }
-        rimGUIList.setVisible(true);
-
-    }//GEN-LAST:event_addRimButtonActionPerformed
-
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        Manager.getInstance().budget.addObserver(Manager.getInstance().rimsList);
-        
+        if(jCheckBox1.isSelected())
+            Manager.getInstance().budget.addObserver(Manager.getInstance().rimsList);
+        else {
+            Manager.getInstance().budget.removeObserver(Manager.getInstance().rimsList);
+            updateAllParts(rimGUIList, Manager.getInstance().rimsList);
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void rimGUIListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rimGUIListMousePressed
-        Part selectedPart = (Part) rimGUIList.getSelectedValue();
-        manager.currentVehicle.addPart(selectedPart);
-        System.out.println(selectedPart);
-        updateRemainingBudget();
+     Part rim = (Part)rimGUIList.getSelectedValue();    
+     JOptionPane.showMessageDialog(this, "Adding Rim titled " + rim.getImage() + 
+             " \n   Price is $" + rim.getPrice());
+     Manager.getInstance().currentVehicle.addPart(rim);
+     updateRemainingBudget();
+
     }//GEN-LAST:event_rimGUIListMousePressed
 
+    private void tintGUIListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tintGUIListMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tintGUIListMousePressed
+
+    private void engineGUIListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_engineGUIListMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_engineGUIListMousePressed
+
+    private void speakerGUIList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_speakerGUIList1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_speakerGUIList1MousePressed
+
+    private void wheelGUIListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wheelGUIListMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wheelGUIListMousePressed
+
+    private void spoilerGUIList3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spoilerGUIList3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_spoilerGUIList3MousePressed
+
     private void updateRemainingBudget(){
+        //System.out.println(Manager.getInstance().currentVehicle.priceSum);
+        //System.out.println(Budget.remainingBudget);
         manager.budget.calculateRemainingBudget(manager.currentVehicle);
         remainingBudgetLabel.setText("Remaining Budget: " + Double.toString(Budget.getRemainingBudget()));
     }
@@ -151,12 +231,29 @@ public class PartsPanel extends javax.swing.JPanel {
         }
         rimGUIList.setModel(listModel);
     }
+    
+    public void updateAllParts(JList updatedJList, PartList updatedPartList) {
+        DefaultListModel listModel = new DefaultListModel();
+        for (Part p: updatedPartList.visibleParts) {
+            listModel.addElement(p);
+        }
+        updatedJList.setModel(listModel);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addRimButton;
+    private javax.swing.JList engineGUIList;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel remainingBudgetLabel;
     private javax.swing.JList rimGUIList;
+    private javax.swing.JList speakerGUIList1;
+    private javax.swing.JList spoilerGUIList3;
+    private javax.swing.JList tintGUIList;
+    private javax.swing.JList wheelGUIList;
     // End of variables declaration//GEN-END:variables
 }
